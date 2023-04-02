@@ -1,0 +1,36 @@
+{
+  "name": "s06-okanban-red-enzoclock",
+  "version": "1.0.0",
+  "description": "Okanban Maya 2022",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "db:tables": "psql -U okanban -d okanban -f data/create_tables.sql",
+    "db:seed": "psql -U okanban -d okanban -f data/seed_database.sql",
+    "db:reset": "npm run db:tables && npm run db:seed",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-clock-Maya/S06-okanban-RED-enzoclock.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/O-clock-Maya/S06-okanban-RED-enzoclock/issues"
+  },
+  "homepage": "https://github.com/O-clock-Maya/S06-okanban-RED-enzoclock#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "pg": "^8.8.0",
+    "sequelize": "^6.27.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
