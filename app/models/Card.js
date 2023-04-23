@@ -15,7 +15,6 @@ Card.init({
   },
   color: {
     type: DataTypes.TEXT,
-    // On pourrait ici affiner le type pour interdire les TEXT de plus de 7 caractères, mais laissons la BDD s'en charger
   }
 }, {
   sequelize,
@@ -24,4 +23,3 @@ Card.init({
 
 module.exports = Card;
 
-// Card.findAll();

@@ -12,6 +12,4 @@ const sequelize = new Sequelize(process.env.PG_URL, {
   }
 });
 
-// sequelize.authenticate(); // Executing (default): SELECT 1+1 AS result 💪 
-
 module.exports = sequelize;

@@ -21,4 +21,3 @@ List.init({
 
 module.exports = List;
 
-// List.findAll();

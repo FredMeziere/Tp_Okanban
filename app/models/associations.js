@@ -2,8 +2,7 @@ const Card = require("./Card");
 const Label = require("./Label");
 const List = require("./List");
 
-// Card <-> List
-// One-To-Many
+
 
 List.hasMany(Card, {
   as: "cards", // Depuis une List, je pourrai demander ses "cards"
@@ -14,13 +13,6 @@ Card.belongsTo(List, {
   foreignKey: "list_id"
 });
 
-// On test !
-// List.findOne({ include: "cards" }).then(res => console.log(res.get({ plain: true })));
-// Card.findOne({ include: "list", raw: true }).then(res => console.log(res));
-
-
-// Card <-> Label
-// Many-to-Many
 
 Card.belongsToMany(Label, {
   as: "labels",
@@ -34,7 +26,6 @@ Label.belongsToMany(Card, {
   foreignKey: "card_id" // pour un label, on cherche les cartes
 });
 
-// Card.findOne({ include: "labels" }).then(res => console.log(res.toJSON()));
-// Label.findOne({ include: "cards" }).then(res => console.log(res.toJSON()));
+
 
 module.exports = { Label, Card, List };

@@ -45,18 +45,9 @@ async function createList(req, res) {
 
   // Traitement
   const list = await List.create({
-    name,
+    name: sanitizeHtml(name),
     position: (position ? parseInt(position) : 0)
   });
-
-  // Autre possibilité d'implémentation
-  // const list = new List({ name });
-  // if (position) {
-  //   list.position = parseInt(position);
-  // } else {
-  //   list.position = 0;
-  // }
-  // await list.save();
 
   // Réponse
   res.status(201).json(list);
@@ -81,19 +72,14 @@ async function deleteList(req, res) {
 
   await list.destroy(); // On supprime la liste de la BDD
 
-  // Réponse obligatoire !
-  res.status(204).end(); // Je respecte la spécification à la lettre. Je ne renvoie rien !
-  // res.end() termine la requête sans envoyer de données.
-  // res.send(...) termine la requête en renvoyant des données au format text (je crois)
-  // res.json(...) termine la requête en renvoyant des données au format json
-  // res.render(...) termine la requête en renvoyant une page HTML
+
+  res.status(204).end();
+
 }
 
 async function updateList(req, res) {
   // Parsing input
   const { name: newName, position: newPosition } = req.body;
-  // const newName = req.body.name;
-  // const newPosition = req.body.position
   const listId = parseInt(req.params.id);
 
   // Si mauvais format pour la listId

@@ -18,4 +18,4 @@ Label.init({
 
 module.exports = Label;
 
-// Label.findAll();
+
