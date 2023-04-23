@@ -1,6 +1,6 @@
 const { Router } = require("express");
-const { listController } = require("./controllers");
-const cw = require("./controllers/controllerWrapper"); // Controller Wrapper
+const { listController } = require("../controllers");
+const cw = require("./controllerWrapper");
 
 const router = Router();
 
